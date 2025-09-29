@@ -78,7 +78,7 @@ st.markdown("""
 
 with st.sidebar:
     st.sidebar.header("Simulation Settings")
-    n_trains = st.sidebar.slider("Number of Trains", 2, 20, 10)
+    n_trains = st.sidebar.slider("Number of Trains", 2, 15, 10)
     n_tracks = st.sidebar.slider("Number of Tracks", 1, 10, 5)
     n_stations = st.sidebar.slider("Number of Stations", 1, 10, 4)
     episode_time = st.sidebar.slider("Simulation Steps", 100, 1000, 400)
@@ -712,5 +712,6 @@ class TrainEnv:
 
 
  
+
 
 
