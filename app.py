@@ -27,6 +27,9 @@ st.markdown("""
     - Harness AI-driven insights to reduce delays and improve scheduling.  
     - Visualize rail network performance in real time for smarter decisions.
 
+    NOTICE:-Kindly select the desired feature in dashboard and then click 'Run Simulation'. 
+
+
     """)
 
 st.markdown("""
@@ -82,7 +85,7 @@ with st.sidebar:
     steps = st.slider("Simulation Episodes", 10, 100, 50)
     
     st.header("Control Panel")
-    controller_mode = st.radio("Select Controller Mode", ["Baseline", "AI Model", "Compare AI vs Baseline"])
+    controller_mode = st.radio("Select Controller Mode", ["Baseline Model", "AI Model", "Adaptive Control Model"])
     run_button = st.button("▶ Run_Simulation", key="run_sim_button1")
 
     st.header("⚙️ Simulation Controls")
@@ -105,7 +108,6 @@ if controller_mode in ["AI Model", "Compare AI vs Baseline"]:
     try:
         rl_model = PPO.load("models/ppo_multitrain")
     except:
-        st.warning("⚠ RL model not found. Falling back to Baseline controller.")
         rl_model = None
         if controller_mode == "AI Model":
             controller_mode = "Baseline"
@@ -113,8 +115,7 @@ if controller_mode in ["AI Model", "Compare AI vs Baseline"]:
 ml_model = None
 try:
     ml_model = joblib.load("models/train_ai_model.pkl")
-except:
-    st.info("ℹ ML model not found. Delay prediction disabled.")
+
 
 # ===============================
 # ⚙ Baseline Controller
@@ -708,3 +709,4 @@ class TrainEnv:
 
 
  
+
