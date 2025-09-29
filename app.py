@@ -108,6 +108,7 @@ if controller_mode in ["AI Model", "Compare AI vs Baseline"]:
     try:
         rl_model = PPO.load("models/ppo_multitrain")
     except:
+        st.warning("  ")
         rl_model = None
         if controller_mode == "AI Model":
             controller_mode = "Baseline"
@@ -115,6 +116,8 @@ if controller_mode in ["AI Model", "Compare AI vs Baseline"]:
 ml_model = None
 try:
     ml_model = joblib.load("models/train_ai_model.pkl")
+except:
+    st.info("  ")
 
 
 # ===============================
@@ -709,4 +712,5 @@ class TrainEnv:
 
 
  
+
 
