@@ -519,7 +519,6 @@ def live_map(traj, env):
     # --- Layout & Auto-Play Animation ---
     fig.update_layout(
         title="🚆 IRCTC Real-Time Train Control Map",
-        title1="Click on autoplay to check the distance covered by trains",
         xaxis=dict(title="Distance Along Track (per 1500m)", range=[0, env.L]),
         yaxis=dict(
             title="Track #",
@@ -713,6 +712,7 @@ class TrainEnv:
 
 
  
+
 
 
 
